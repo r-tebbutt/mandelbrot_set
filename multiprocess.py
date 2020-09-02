@@ -84,16 +84,16 @@ if __name__ == '__main__':
    
     pixels_list = list(pixels) # manager.list is a listproxy which didn't work with .putpixel
     
-    start1 = time.time()
+    
     for i in range(height):
 
         for j in range(width):
 
             img.putpixel((j, i), (pixels_list[i][j]))
-    end1 = time.time()
+    
     img.show()
     img.save('mandelbrot.png')
     end = time.time()
-    print(end - start, end1-start1)
+    print(end - start)
    
 
