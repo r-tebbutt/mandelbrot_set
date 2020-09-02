@@ -48,11 +48,12 @@ for i in range(width):
 
 
 
-
+start1 = time.time()
 mandelbrot_set = Image.fromarray(data, mode = "HSV")
+end1 = time.time()
 mandelbrot_set.show()
 end = time.time()
-print(end - start)
+print(end - start, end1 - start1)
 
 
 

@@ -4,8 +4,8 @@ import cmath
 import time
 from multiprocessing import Process, Manager
 
-width = 1920
-height = 1080
+width = 1000
+height = 1000
 
 re_lb = -2 * (width / height) # factor at end ensures it doesn't look stretched
 re_ub = 2 * (width / height)
@@ -82,18 +82,18 @@ if __name__ == '__main__':
     my_thread5.join()
     
    
-    pixels1 = list(pixels) # manager.list is a listproxy which didn't work with .putpixel
+    pixels_list = list(pixels) # manager.list is a listproxy which didn't work with .putpixel
     
-    
+    start1 = time.time()
     for i in range(height):
 
         for j in range(width):
 
-            img.putpixel((j, i), (pixels1[i][j]))
-
+            img.putpixel((j, i), (pixels_list[i][j]))
+    end1 = time.time()
     img.show()
     img.save('mandelbrot.png')
     end = time.time()
-    print(end - start)
+    print(end - start, end1-start1)
    
 
