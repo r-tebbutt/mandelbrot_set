@@ -3,14 +3,15 @@ from PIL import Image
 import cmath
 import time
 from multiprocessing import Process, Manager
+import random
 
-width = 1000
+width = 1000 # takes 1 minute to produce a 4k image
 height = 1000
 
-re_lb = -2 * (width / height) # factor at end ensures it doesn't look stretched
-re_ub = 2 * (width / height)
-im_lb = -2
-im_ub = 2
+re_lb = -1.5 * (width / height) # factor at end ensures it doesn't look stretched
+re_ub = 1.5 * (width / height)
+im_lb = -1.5
+im_ub = 1.5
 
 re_interval = (re_ub - re_lb) / width
 im_interval = (im_ub - im_lb) / height
@@ -19,11 +20,11 @@ img = Image.new( 'RGB', (width, height), "black")
 
 def test_converge(re, im):
     z = complex(re, im)
-    seed = complex(0,0)
+    seed = z 
     iterations = 0
     
     while seed.real**2+seed.imag**2 < 10 and iterations < 100:
-            new_z = seed*seed + z
+            new_z = seed*seed + complex(-0.8 , - 0.156)
             seed = new_z
             iterations += 1
 
@@ -46,7 +47,7 @@ def generate_mandelbrot(start_row, end_row, pixels):
             
             re_val = re_lb + j * re_interval
             colour = int(test_converge(re_val, im_val))
-            temp_list.append((colour, 0, colour))
+            temp_list.append((colour, colour , colour + 50))
 
         pixels[i] = temp_list
         
