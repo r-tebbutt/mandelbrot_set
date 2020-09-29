@@ -36,5 +36,12 @@ case, c is a constant complex number, and z is the complex number being tested.
 
 The fractals generated can be drastically changed by subtly altering the recursion equation - playing around with this is the fun part.
 
-This was a lesson in utilising multiple cores to improve performance as well as learning more about fractals, and I got a very pretty desktop background for my efforts.
+mandelbrot.cpp:
+
+This program is a replica of mandelbrot.py, but written in c++. This creates the same image in about 3 seconds, emphasising how much faster c++ runs compared to python.
+
+This was a lesson in utilising multiple cores to improve performance and let me experience the drastic difference in execution speeds of compiled vs interpreted languages.
+I learnt more about fractals, and I got a very pretty desktop background for my efforts.
+
+
 
