@@ -38,7 +38,7 @@ The fractals generated can be drastically changed by subtly altering the recursi
 
 mandelbrot.cpp:
 
-This program is a replica of mandelbrot.py, but written in c++. This creates the same image in about 3 seconds, emphasising how much faster c++ runs compared to python.
+This program is a replica of mandelbrot.py, but written in c++. This creates the same image in 4 seconds with no compiler optimisation, and 2.7 seconds with /02 optimisation (which favours speed), emphasising how much faster c++ runs compared to python.
 
 This was a lesson in utilising multiple cores to improve performance and let me experience the drastic difference in execution speeds of compiled vs interpreted languages.
 I learnt more about fractals, and I got a very pretty desktop background for my efforts.
