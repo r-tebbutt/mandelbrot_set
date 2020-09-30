@@ -13,8 +13,7 @@ multiprocess.py:
 After the initial code was completed (see mandelbrot.py), an optimised version (see multiprocessing.py), which incorporates multiprocessing for 
 a 6 core CPU, was written and seen to decrease processing time from ~15 seconds to ~10 seconds for a 1000 x 1000 image on my computer, a 33% decrease.
 
-The reason this is far from a 6 - fold decrease is because I could not find a way to split the manual pixel assigning between the 6 cores,
-as each core can only make a change to something if it is in shared memory, i.e. there is a lot of overhead in the program. There very well may be a faster way to do this.
+The reason this is far from a 6 - fold decrease is because I could not find a way to split the manual pixel assigning between the 6 cores so only the actual calculation of which pixels are in the mandelbrot set is parallel processed, as each core can only make a change to something if it is in shared memory. Therefore, there is a lot of overhead in the program. There very well may be a faster way to do this.
 
 I was unable to use Image.fromarray() to generate an image in multiprocess.py. I'm not sure why it didn't work but it created very incorrect images
 while Image.putpixel() was working just fine. Assigning pixels manually is much slower than using Image.fromarray.
